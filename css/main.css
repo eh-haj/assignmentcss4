@@ -1,0 +1,326 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/************Start of head menu ***********/
+.head-menu{
+    background: #eee;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+.head-menu .icon{
+    width: 35px;
+    object-fit: cover;
+}
+.menu a{
+    text-decoration: none;
+    padding: 10px;
+}
+.menu > a:hover{
+    background: #70af85;
+}
+.btn1{
+    padding: 5px 10px;
+    border-style:double;
+}
+.btn1:hover{
+    background: #70af85;
+}
+/************Start of section 1 ***********/
+.header .head-top{
+    background: url(../imgs/back.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+}
+.header .head-top  .title{
+    padding: 10% 60% 0 5%;
+    opacity: 0.8;
+}
+h5{
+    color: red;
+}
+.header .head-top  .title h1{
+    font-size: 40px;
+    padding: 5px 0;
+}
+.header .head-top  .title p{
+    padding: 10px 0;
+}
+.header .head-top  .title button{
+    padding: 5px 30px;
+    background: #fa1e0e;
+}
+.header .head-top  .title button a{
+    text-decoration: none;
+    color: #fff;
+}
+.header .head-bottom{
+    display: flex;
+    justify-content: space-around;
+    padding: 10%;
+}
+.header .head-bottom .left{
+    padding-top: 10%;
+}
+.header .head-bottom div{
+    flex-basis: 50%;
+    opacity: 0.8;
+}
+.h1-title{
+   font-size: 35px; 
+    padding: 10px 0;
+}
+.header .head-bottom div > p{
+    padding-bottom: 15px;
+}
+.header .head-bottom .left .link{
+    display: flex;
+}
+.header .head-bottom .left .link div{
+    padding: 10px 0;
+    display: flex;
+}
+.header .head-bottom .left .link i{
+    padding: 10px;
+}
+
+.header .head-bottom img{
+    flex-basis: 40%;
+    width: 400px;
+}
+/************End of section 1 ***********/
+/************Start of section 2 ***********/
+.body1 .body1-top{
+    background: url(../imgs/back2.jpg);
+    background-size: cover;
+    text-align: center;
+    padding: 0 35%;
+}
+.body1 .body1-top .menu{
+    padding: 10px;
+}
+.body1 .body1-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.body1 .body1-bottom img{
+    width: 400px;
+    height: 500px;
+    flex-basis: 35%;
+    object-fit: cover;
+}
+/************End of section 2 ***********/
+/************Start of section 3 ***********/
+.body2{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding: 10%;
+}
+.body2 img{
+    width: 450px;
+    height: 550px;
+    object-fit: cover;
+    flex-basis: 35%;
+}
+.body2 div{
+    flex-basis: 35%;
+}
+.body2 div p{
+    padding: 10px 0;
+}
+.body2 div .par1{
+    padding: 25px 0;
+    opacity: 0.7;
+}
+.btn1 a{
+    text-decoration: none;
+}
+/************End of section 3 ***********/
+/************Start of section 4 ***********/
+.body3 .body3-top{
+    background: url(../imgs/background7.jpg);
+    background-size: cover;
+    text-align: center;
+    padding: 5% 10%;
+}
+.body3 .body3-top .book-list{
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #eee;
+}
+.body3 .body3-top .book-list select{
+    width: 150px;
+    height: 30px;
+    background: #eee;
+    margin: 10px;
+    border-width: 0;
+}
+.body3 .body3-top .book-list button{
+    width: 150px;
+    height: 30px;
+    background: #fa1e0e;
+    margin-top: 9px;
+}
+.body3 .body3-bottom{
+    text-align: center;
+    padding: 8%;
+    }
+.body3 .body3-bottom .cards{
+    display: flex;
+    justify-content:space-around;
+}
+.body3 .body3-bottom .cards .card{
+    flex-basis: 20%;
+    box-shadow: 8px 8px 10px #fa1e0e;
+    border: 2px solid #eee;
+}
+/************End of section 4 ***********/
+/************Start of section 5 ***********/
+.body4 .body4-top{
+    background: url(../imgs/background6.jpg);
+    background-size: cover;
+    padding: 10% 1% 10% 50%;
+}
+.body4 .body4-top p{
+    padding: 15px 0;
+}
+.body4 .body4-top textarea{
+    width: 450px;
+}
+.body4 .body4-top button{
+    padding: 8px 50px;
+    background: #fa1e0e;
+}
+.body4 .body4-top button a{
+    text-decoration: none;
+    color: #fff;
+}
+.body4 .body4-center{
+    text-align: center;
+    padding: 5% 0;
+}
+.body4 .body4-center .center-foto{
+    display: flex;
+    justify-content: center;
+}
+.body4 .body4-center .center-foto .foto-card{
+    flex-basis: 20%;
+    padding: 10px;
+    position: relative;
+}
+.body4 .body4-center .center-foto .foto-card img{
+    width: 350px;
+    height: 500px;
+}
+.body4 .body4-center .center-foto .foto-card div{
+    background: #eee;
+    width: 300px;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+    top: 85%;
+    right: 10px;
+    opacity: 0.9;
+}
+.body4 .body4-center .center-foto .foto-card .end{
+    background: #fa1e0e;
+    color: #eee;
+    opacity: 0.9;
+}
+.body4 .body4-end{
+    display: flex;
+    justify-content: space-around;
+    background: #212121;
+    padding: 5% 0;
+}
+.body4 .body4-end h1{
+    color: #eee;
+}
+.body4 .body4-end li{
+    padding: 5px 0;
+    list-style-type:circle;
+}
+.body4 .body4-end li a{
+    color: #eee;
+    text-decoration: none;
+}
+.body4 .body4-end .end-foto{
+    display: flex;
+    flex-basis: 40%;
+    flex-wrap: wrap;
+}
+.body4 .body4-end .end-foto h1{
+    padding-bottom: 10px;
+}
+.body4 .body4-end img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+/************End of section 5 ***********/
+
+/************Start of media ***********/
+@media screen and (max-width: 700px){
+    .header .head-top  .title{
+        padding: 5% 25% 0 2%;
+        opacity: 0.8;
+    }
+    .header .head-top  .title h1{
+        font-size: 30px;
+    }
+    .header .head-bottom{
+        flex-direction: column;
+        text-align: center;
+    }
+    .body1 .body1-top{
+        padding: 0;
+    }
+    .body1 .body1-bottom{
+        flex-direction: column;
+        align-items: center;
+    }
+    .body2{
+    flex-direction: column-reverse;
+    }
+    .body2 img{
+        width: 400px;
+        padding: 10% 0;
+    }
+    .body3 .body3-top{
+        padding: 10% 5%;
+    }
+    .body3 .body3-top .book-list{
+        padding: 0 5px;
+        justify-content: space-between;
+    }
+    .body3 .body3-bottom .cards{
+        flex-direction: column;
+    }
+    .body3 .body3-bottom .cards .card{
+        margin: 15px;
+    }
+    .body4 .body4-top{
+        padding: 10% 1% 10% 40%;
+    }
+    .body4 .body4-top textarea{
+    width: 250px;
+    }
+    .body4 .body4-center .center-foto{
+        flex-direction: column;
+    }
+    .body4 .body4-end{
+        flex-direction: column;
+        align-items: center;
+    }
+    .body4 .body4-end div{
+        padding: 15px 0;
+    }
+}

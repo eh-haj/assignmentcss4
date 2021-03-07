@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"02e09611df",applicationID:"156179534"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="csrf-name" content="csrf604550076d02c">
+	<meta name="csrf-value" content="061b4ac3c02389c7603e1a5f0642f84f">
+	<meta name="cart-hash" content="d751713988987e9331980363e24189ce">
+	<meta name="twitter:site" content="@VectorStock">
+	<meta property="og:site_name" content="VectorStock">
+	<meta property="fb:app_id" content="241100862642313">
+	
+	<link rel="dns-prefetch" href="https://cdn.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn1.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn2.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn3.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn4.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn5.vectorstock.com">
+	<link rel="shortcut icon" href="https://cdn.vectorstock.com/img/icons/favicon.ico" type="image/x-icon">
+	<link rel="search" type="application/opensearchdescription+xml" title="VectorStock Search" href="https://www.vectorstock.com/xml/searchbox.xml">
+
+	<title>Map pointer with fast food icon isolated Vector Image</title>
+	<meta name="description" content="Map pointer with fast food icon. Vector isolated location sign. EPS10. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions..">
+	
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.vectorstock.com/royalty-free-vector/map-pointer-with-fast-food-icon-isolated-vector-20095652">
+	<meta property="og:title" content="Map pointer with fast food icon isolated vector image on VectorStock">
+	<meta property="og:description" content="Map pointer with fast food icon. Vector isolated location sign. EPS10. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+	<meta property="og:image" content="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+	<meta property="og:image:url" content="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+	<meta property="og:image:secure_url" content="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="1000">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="https://www.vectorstock.com/royalty-free-vector/map-pointer-with-fast-food-icon-isolated-vector-20095652">
+	<meta name="twitter:title" content="Map pointer with fast food icon isolated vector image">
+	<meta name="twitter:description" content="Map pointer with fast food icon. Vector isolated location sign. EPS10">
+	<meta name="twitter:image" content="https://cdn3.vectorstock.com/i/thumb-large/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+	<meta name="twitter:image:width" content="238">
+	<meta name="twitter:image:height" content="250">
+
+	<link rel="canonical" href="https://www.vectorstock.com/royalty-free-vector/map-pointer-with-fast-food-icon-isolated-vector-20095652">
+
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/common1614738779.min.css">
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/vector1614738779.min.css">
+	<script src="//cdn.vectorstock.com/cache/common1614905816.min.js"></script>
+	<script src="//cdn.vectorstock.com/cache/vector1614905816.min.js"></script>
+	<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2180430-2"></script>
+<script src="/js/trackpageview"></script>
+</head>
+<body>
+
+<!-- Top header -->
+<header>
+	<nav class="top">
+		<figure>
+			<a href="/" title="VectorStock&reg;">VectorStock&reg;</a>
+		</figure>
+
+		<div class="grid">
+			<form id="searchbox" class="focused empty">
+				<div class="wrap">
+					<fieldset>
+						<div class="contents">
+							<div class="tags">
+								<ul></ul>
+							</div>
+							<div class="input">
+								<input type="text" name="input" autocomplete="off" autocapitalize="none" spellcheck="true" value="" placeholder="Search…" maxlength="50" autofocus>
+								<button type="button" data-action="clear">×</button>
+							</div>
+
+							<input type="hidden" name="category" value="">
+							<input type="hidden" name="custom_srp" value="">
+							<input type="hidden" name="artist" value="">
+							<input type="hidden" name="similar" value="">
+						</div>
+					</fieldset>
+
+					<button type="submit">
+						<span class="icon">Search</span>
+					</button>
+				</div>
+			</form>
+			<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+		</div>
+
+		<div class="aside">
+			<ul>
+				<li><a href="/popular-categories" title="Popular Categories">Categories</a></li>
+				<li><a href="/pricing" title="Pricing">Pricing</a></li>
+				<li class="account">
+					<button type="button" data-action="signup">Sign Up</button>
+					<button type="button" data-action="login">Login</button>
+				</li>
+			</ul>
+		</div>
+
+		<div id="mobilenav-icon">
+			<span></span><span></span><span></span><span></span>
+		</div>
+	</nav>
+
+	<!-- Submenu -->
+		<nav id="searchrelated"></nav>	
+
+		<!-- Mobile menu -->
+	<div id="mobilenav-menu">
+		<div>
+			<div class="group">
+				<h4>Browse</h4>
+				<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+			</div>
+			<div class="group">
+				<h4>Account</h4>
+				<ul>
+					<li class="account">
+							<ul>
+								<li><a href="/signup">Sign Up</a></li>
+								<li data-action="login"><a href="/?login=1">Login…</a></li>
+								<li><a href="/pricing">Pricing</a></li>
+							</ul>
+						</li>
+				</ul>
+				<form method="get" action="/auth/logout" class="logout">
+					<input type="hidden" name="logout" value="1">
+				</form>
+			</div>
+			<div class="group">
+				<h4>Help</h4>
+				<ul>
+					<li><a href="/faq"><abbr title="Frequently Asked Questions">FAQs</abbr></a></li>
+					<li><a href="/contact">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+		<!-- Account Menu Tabs -->
+		<aside id="nav_sidebar" class="tabs tabsDark">
+
+			<nav>
+				<ul role="tablist">
+					<li data-tab-id="signup" class=""><span role="tab"><span>Sign Up</span></span></li>
+					<li data-tab-id="login" class="selected"><span role="tab"><span>Log In</span></span></li>
+				</ul>
+			</nav>
+
+			<section id="sb_signup" data-tab-id="signup" class="">
+				<div class="primary">
+					<p>New to VectorStock?</p>
+					<p><em>We're the largest royalty-free, vector-only stock agency in the world.</em></p>
+					<p>Every week we add new premium graphics by the thousands.</p>
+				</div>
+				<div class="secondary">
+					<p>Whether you're a global ad&nbsp;agency or a freelance graphic designer, we have the vector graphics to make your project come to life.</p>
+					<p>Buy Vectors, sell Vectors or both. <a href="/signup">Sign up now, it’s free.</a></p>
+				</div>
+				<div class="footer">
+					<button class="master">
+						<span class="title">Sign Up...</span>
+						<span class="value">
+							<span class="symbol signup"></span>
+						</span>
+					</button>
+				</div>
+			</section>
+
+			<section id="sb_login" data-tab-id="login" class="selected">
+				<form action="/auth/login" method="post">
+
+
+					<fieldset class="">
+						<label for="vs_username">Email / Username</label>
+						<div class="textfield">
+							<input type="text" id="vs_username" name="vs_username" value="" autocomplete="on" tabindex="1">
+						</div>
+					</fieldset>
+					<fieldset class="">
+						<label for="vs_password">Password</label>
+						<button type="button" class="forgot">Forgot Password</button>
+						<div class="textfield">
+							<input type="password" id="vs_password" name="vs_password" value="" autocomplete="on" tabindex="2"  maxlength="72">
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="checkbox checked">
+							<label class="selected" for="vs_remember">
+								<span class="title">Stay Logged In</span>
+								<span class="icon"></span>
+								<input type="checkbox" id="vs_remember" name="vs_remember" value="yes" tabindex="3" checked>
+							</label>
+						</div>
+					</fieldset>
+
+
+					<button type="submit" tabindex="4">Log In</button>
+				</form>
+				<div class="alternatives">
+					<h6>Or Login With</h6>
+					<ul>
+						<li class="gp"><a href="/">
+							<span class="title">Google</span>
+							<span class="icon"></span>
+						</a></li>
+						<li class="fb"><a href="/">
+							<span class="title">Facebook</span>
+							<span class="icon"></span>
+						</a></li>
+					</ul>
+				</div>
+
+				
+			</section>
+		</aside>
+
+	<!-- Page -->
+	<article>
+		<section id="vs-asset">
+
+			<!-- Aside -->
+			<div class="aside">
+				<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" href="/royalty-free-vectors">
+							<span itemprop="name">Royalty Free Vectors</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" href="/royalty-free-vectors/fast-vectors">
+							<span itemprop="name">Fast Vectors</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+				</ol>
+
+				<h1>
+					Map pointer with fast food icon isolated vector&nbsp;image																			</h1>
+
+				<figure style="padding-top: 99%;" class="target">
+					<div class="highres" data-src="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+						<noscript><img src="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg" title="Map pointer with fast food icon isolated vector image" alt="Map pointer with fast food icon isolated"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn3.vectorstock.com/i/thumbs/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg" title="Map pointer with fast food icon isolated vector image" alt="Map pointer with fast food icon isolated">
+					</div>
+					<div class="overlay"></div>
+				</figure>
+
+				<form data-loggedin="0" data-licenses="2" data-license="standard" data-status="" data-payment="single-image">
+					<input type="hidden" id="vector_id" value="20095652">
+					<input type="hidden" id="vector_title" value="Map pointer with fast food icon isolated">
+					<input type="hidden" id="vector_description" value="Map pointer with fast food icon. Vector isolated location sign. EPS10. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+					<input type="hidden" id="vector_url" value="https://www.vectorstock.com/royalty-free-vector/map-pointer-with-fast-food-icon-isolated-vector-20095652">
+					<input type="hidden" id="vector_media" value="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+					<input type="hidden" id="vector_ratio" value="1">
+					<input type="hidden" id="vector_license_status" value="">
+					<input type="hidden" id="artist_name" value="bagrovskam">
+					<input type="hidden" id="account_user" value="0">
+
+					<input type="hidden" id="vector_download_urls" value="[]">
+					<input type="hidden" id="vector_license_options" value="[{&quot;type&quot;:&quot;standard&quot;,&quot;cost&quot;:{&quot;single-image&quot;:14.99,&quot;credits&quot;:1,&quot;subscription&quot;:1}},{&quot;type&quot;:&quot;expanded&quot;,&quot;cost&quot;:{&quot;single-image&quot;:39.99,&quot;credits&quot;:30}}]">
+					<input type="hidden" id="account_filetype" value="zip">
+					<input type="hidden" id="account_customizations" value="[]">
+					<input type="hidden" id="account_cloud" value="[{&quot;type&quot;:&quot;googledrive&quot;,&quot;status&quot;:&quot;connect&quot;},{&quot;type&quot;:&quot;dropbox&quot;,&quot;status&quot;:&quot;connect&quot;}]">
+					
+					<div class="options">
+						<!--
+						-- OPTION: License type
+						-->
+						<div class="option" data-type="license" data-license="standard" data-licenses="2">
+							<h6><span class="type">License</span><a href="/faq/members/standard-license">Learn More</a></h6>
+							<div class="optgroup radgroup">
+								<fieldset>
+									<label for="f_license_standard" class="checked">
+										<input type="radio" id="f_license_standard" name="license" value="standard" checked="checked" tabindex="2">
+										<span class="label">Standard</span>
+										<span class="descr">For Print, Advertising, Design</span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_license_expanded">
+										<input type="radio" id="f_license_expanded" name="license" value="expanded" tabindex="4">
+										<span class="label">Expanded</span>
+										<span class="descr">For Resale &amp; Reproduction</span>
+									</label>
+								</fieldset>
+							</div>
+
+							<div class="help">
+								<p>The license type determines how you can use this image.</p>
+								<table>
+									<thead>
+										<tr>
+											<th></th>
+																						<th data-license="standard">Std.</th>																						<th data-license="expanded">Exp.</th>										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td>Print / Editorial</td>
+											<td data-license="standard"><span class="yes"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+										<tr>
+											<td>Graphic Design</td>
+											<td data-license="standard"><span class="yes"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+										<tr>
+											<td>Web Design</td>
+											<td data-license="standard"><span class="yes"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+										<tr>
+											<td>Social Media</td>
+											<td data-license="standard"><span class="yes"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+										<tr>
+											<td>Edit &amp; Modify</td>
+											<td data-license="standard"><span class="yes"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+										<tr>
+											<td>Multi-user</td>
+											<td data-license="standard"><span class="no"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+										<tr>
+											<td>Resale Items</td>
+											<td data-license="standard"><span class="no"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+										<tr>
+											<td>Unlimited Runs</td>
+											<td data-license="standard"><span class="no"></span></td><td data-license="expanded"><span class="yes"></span></td> 											
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						
+						<!--
+						-- OPTION: Payment options (Standard)
+						-->
+						<div class="option" data-type="payment" data-license="standard">
+							<h6><span class="type">Ways to Buy</span><a href="/pricing">Compare</a></h6>
+							<div class="optgroup radgroup" data-license="standard">
+								<fieldset>
+									<label for="f_payment_standard_single-image" class="checked" >
+										<input type="radio" id="f_payment_standard_single-image" name="payment_standard" data-cost="14.99" value="single-image"  checked="checked" tabindex="5">
+										<span class="label">Pay-per-Image</span>
+										<span class="value"><small>$</small><var>14.99</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_standard_credits">
+										<input type="radio" id="f_payment_standard_credits" name="payment_standard" data-cost="1" value="credits" tabindex="6">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>1.00</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_standard_subscription">
+										<input type="radio" id="f_payment_standard_subscription" name="payment_standard" data-cost="1" value="subscription" tabindex="7">
+										<span class="label">Subscription</span>
+										<span class="value"><small>$</small><var>0.69</var></span>
+									</label>
+								</fieldset>
+							</div>
+							<div class="help">
+								<p>There are three ways to pay for Standard licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Image Price</th>
+										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pay-per-Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>14.99</span>
+												</span>
+												<span class="byline">One-time payment</span>
+											</td>
+										</tr>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pre-paid Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>1</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1). Minimum purchase of 30.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Subscription Plan</span>
+													<span class="dm"></span>
+													<span class="dd"><em>From</em> 69c</span>
+												</span>
+												<span class="byline">Choose a monthly plan. Unused downloads automatically roll into following month.</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--
+						-- OPTION: Payment options (Expanded)
+						-->
+						<div class="option" data-type="payment" data-license="expanded">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="optgroup radgroup" data-license="expanded">
+								<fieldset>
+									<label for="f_payment_expanded_single-image" class="checked">
+										<input type="radio" id="f_payment_expanded_single-image" name="payment_expanded" data-cost="39.99" value="single-image" checked="checked" tabindex="8">
+										<span class="label">Pay-per-Image</span>
+										<span class="value"><small>$</small><var>39.99</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_expanded_credits">
+										<input type="radio" id="f_payment_expanded_credits" name="payment_expanded" data-cost="30" value="credits" tabindex="9">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>30.00</var></span>
+									</label>
+								</fieldset>
+							</div>
+														<div class="help">
+								<p>There are two ways to pay for Expanded licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Cost per Image</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pay-per-Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>39.99</span>
+												</span>
+												<span class="byline">One-off payment, no signup needed.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pre-paid Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>30</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1).</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+													</div>
+						<!--
+						-- OPTION: Customization
+						-->
+						<div class="option" data-type="customization">
+							<h6><span class="type">New Option!</span><a href="/faq/members/what-is-hire-a-designer">What is this?</a></h6>
+							<div class="optgroup chkgroup">
+								<fieldset>
+									<label for="f_payment_customization">
+										<input type="checkbox" id="f_payment_customization" name="payment_customization" data-cost="85" value="customization" tabindex="12">
+										<span class="label">Customize image</span>
+										<span class="descr">Only available with Pay-per-Image</span>
+										<span class="value"><small>$</small><var>85.00</var></span>
+									</label>
+								</fieldset>
+							</div>
+							<div class="help">
+								<p>Love the image but just need a few modifications? Let our talented artists do the work for you!</p>
+								<p>We&rsquo;ll connect you with a designer who can make updates and send you the artwork in a format of your choice.</p>
+								<h4>Examples</h4>
+								<ul>
+									<li>Change the text</li>
+									<li>Modify colors</li>
+									<li>Resize to new dimensions</li>
+									<li>Include logo or symbol</li>
+									<li>Add your company or business name</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="download">
+						<button type="button" data-action="download">
+							<span class="label">Download Image</span>
+							<span class="icon"></span>
+						</button>
+						<h6><span class="label">Files Included</span></h6>
+						<div class="help">
+							<span class="loading"><span class="label">Loading Details...</span></span>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!-- Image -->
+			<div class="image">
+				<figure data-orientation="square" style="padding-top: 99%;" class="target">
+					<div class="highres" data-src="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+						<noscript><img src="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg" title="Map pointer with fast food icon isolated vector image" alt="Map pointer with fast food icon isolated"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn3.vectorstock.com/i/thumbs/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg" title="Map pointer with fast food icon isolated vector image" alt="Map pointer with fast food icon isolated">
+					</div>
+					<div class="overlay"></div>
+					<div class="panels">
+						<div class="share">
+							<h4>Share with others</h4>
+							<ul>
+								<li class="pinterest"><button type="button" data-action="pinterest"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M12.5,0C5.6,0,0,5.6,0,12.5c0,5.12,3.08,9.52,7.48,11.45c-0.03-0.87-0.01-1.92,0.22-2.87c0.24-1.01,1.61-6.81,1.61-6.81s-0.4-0.8-0.4-1.98c0-1.85,1.07-3.24,2.41-3.24c1.14,0,1.69,0.85,1.69,1.88c0,1.14-0.73,2.85-1.1,4.44c-0.31,1.33,0.67,2.41,1.97,2.41c2.37,0,3.96-3.04,3.96-6.65c0-2.74-1.85-4.79-5.2-4.79c-3.79,0-6.15,2.83-6.15,5.99c0,1.09,0.32,1.86,0.82,2.45c0.23,0.27,0.26,0.38,0.18,0.7c-0.06,0.23-0.2,0.78-0.25,1c-0.08,0.32-0.34,0.43-0.63,0.31c-1.75-0.71-2.56-2.62-2.56-4.77c0-3.55,3-7.81,8.93-7.81c4.77,0,7.91,3.45,7.91,7.16c0,4.9-2.73,8.57-6.75,8.57c-1.35,0-2.62-0.73-3.05-1.56c0,0-0.73,2.88-0.88,3.44c-0.27,0.96-0.78,1.93-1.26,2.68C10.08,24.82,11.27,25,12.5,25C19.4,25,25,19.4,25,12.5S19.4,0,12.5,0L12.5,0z"/></svg></span><span class="label">Pinterest</span></span></button></li>
+								<li class="facebook"><button type="button" data-action="facebook"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M22.44,1H2.56C1.7,1,1,1.7,1,2.56v19.88C1,23.3,1.7,24,2.56,24h10.41v-8.89H9.98v-3.46h2.99V9.1c0-2.96,1.81-4.58,4.45-4.58c1.27,0,2.35,0.09,2.67,0.14v3.1l-1.83,0c-1.44,0-1.72,0.68-1.72,1.69v2.21h3.43l-0.45,3.46h-2.98V24h5.89C23.3,24,24,23.3,24,22.44V2.56C24,1.7,23.3,1,22.44,1z"/></svg></span><span class="label">Facebook</span></span></button></li>
+								<li class="twitter"><button type="button" data-action="twitter"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M7.86,22.5c9.43,0,14.59-7.69,14.59-14.37c0-0.22,0-0.44-0.01-0.65c1-0.71,1.87-1.6,2.56-2.61c-0.92,0.4-1.91,0.67-2.95,0.79c1.06-0.62,1.87-1.61,2.26-2.79c-0.99,0.58-2.09,1-3.26,1.23c-0.94-0.98-2.27-1.6-3.74-1.6c-2.83,0-5.13,2.26-5.13,5.05c0,0.4,0.05,0.78,0.13,1.15C8.05,8.49,4.27,6.48,1.74,3.42C1.3,4.17,1.05,5.04,1.05,5.96c0,1.75,0.91,3.3,2.28,4.2C2.49,10.14,1.7,9.91,1,9.53C1,9.55,1,9.58,1,9.6c0,2.45,1.77,4.49,4.11,4.95c-0.43,0.12-0.88,0.18-1.35,0.18c-0.33,0-0.65-0.03-0.96-0.09c0.65,2.01,2.55,3.47,4.79,3.51C5.84,19.5,3.63,20.3,1.22,20.3c-0.41,0-0.82-0.02-1.22-0.07C2.27,21.66,4.97,22.5,7.86,22.5"/></svg></span><span class="label">Twitter</span></span></button></li>
+								<li class="email"><button type="button" data-action="email"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M22.48,4.17H2.52C1.13,4.17,0,5.3,0,6.69v11.62c0,1.39,1.13,2.52,2.52,2.52h19.96c1.39,0,2.52-1.13,2.52-2.52V6.69C25,5.3,23.87,4.17,22.48,4.17z M23.49,18.31c0,0.56-0.45,1.01-1.01,1.01H2.52c-0.55,0-1.01-0.45-1.01-1.01V6.69c0-0.56,0.45-1.01,1.01-1.01h19.96c0.56,0,1.01,0.45,1.01,1.01V18.31z"/><path d="M19.95,7.95l-7.45,4.83L5.05,7.95C4.7,7.72,4.24,7.82,4.01,8.17C3.78,8.52,3.88,8.99,4.23,9.22l7.86,5.1c0.13,0.08,0.27,0.12,0.41,0.12s0.29-0.04,0.41-0.12l7.86-5.1c0.35-0.23,0.45-0.7,0.22-1.05C20.77,7.82,20.3,7.72,19.95,7.95z"/></svg></span><span class="label">Email</span></span></button></li>
+							</ul>
+						</div>
+						<div class="composite">
+							<button type="button" data-action="download"><span><span class="label">Download JPG Preview Image</span></span></button>
+						</div>
+					</div>
+				</figure>
+				<div class="details">
+					<div class="meta">
+						<ul>
+							<li class="meta-id">
+								<dl><dt>Image ID</dt><dd>20095652</dd></dl>
+							</li>
+							<li class="meta-artist">
+								<dl>
+									<dt>Artist</dt>
+									<dd><a href="/royalty-free-vectors/vectors-by_bagrovskam" rel="nofollow">bagrovskam</a><button type="button" data-action="follow" title="Follow Artists that you like to create a newsfeed of their recent images."><span class="label">Follow</span></button></dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+					<div class="options" data-total="2">
+						<ul>
+							<li class="opt-like">
+								<button type="button" data-action="like" data-count="0"><span class="icon">&hearts;</span><span class="label">Like</span><span class="tally"></span></button>
+							</li>
+							<li class="opt-cart">
+								<button type="button" data-action="cart"><span class="icon">+</span><span class="label">Cart</span></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Metadata -->
+			<div class="metadata">
+				<div itemtype="http://schema.org/ImageObject" itemscope>
+					<img src="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg" itemprop="contentUrl" alt="Map pointer with fast food icon isolated vector">
+					<meta itemprop="url" content="https://cdn3.vectorstock.com/i/1000x1000/56/52/map-pointer-with-fast-food-icon-isolated-vector-20095652.jpg">
+					<meta itemprop="name" content="Map pointer with fast food icon isolated">
+					<meta itemprop="description" content="Map pointer with fast food icon. Vector isolated location sign. EPS10. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions. vector image">
+					<meta itemprop="datePublished" content="2018-02-25">
+					<meta itemprop="fileFormat" content="image/jpeg">
+					<meta itemprop="acquireLicensePage" content="https://www.vectorstock.com/royalty-free-vector/map-pointer-with-fast-food-icon-isolated-vector-20095652">
+					<meta itemprop="license" content="https://www.vectorstock.com/faq/members/standard-license">
+					<meta itemprop="sourceOrganization" content="VectorStock.com">
+				</div>
+			</div>
+			
+		</section>
+
+
+		<section id="vs-related">
+			<div id="group-similar" class="group">
+				<h6><span class="icon"></span><strong>Similar Images</strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/24/77/brighted-map-marker-vector-20832477.jpg"><a href="//www.vectorstock.com/royalty-free-vector/brighted-map-marker-vector-20832477" title="brighted map marker vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/24/77/brighted-map-marker-vector-20832477.jpg" title="brighted map marker" alt="brighted map marker vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/69/85/barbecue-logo-location-vector-21776985.jpg"><a href="//www.vectorstock.com/royalty-free-vector/barbecue-logo-location-vector-21776985" title="barbecue logo location vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/69/85/barbecue-logo-location-vector-21776985.jpg" title="barbecue logo location" alt="barbecue logo location vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/24/75/fast-food-location-logo-minimal-stylized-burger-vector-20252475.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-location-logo-minimal-stylized-burger-vector-20252475" title="fast food location logo minimal stylized burger vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/24/75/fast-food-location-logo-minimal-stylized-burger-vector-20252475.jpg" title="fast food location logo minimal stylized burger" alt="fast food location logo minimal stylized burger vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/55/86/fast-food-icons-with-map-marks-vector-8685586.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-icons-with-map-marks-vector-8685586" title="fast food icons with map marks vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/55/86/fast-food-icons-with-map-marks-vector-8685586.jpg" title="fast food icons with map marks" alt="fast food icons with map marks vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/46/86/hamburger-logo-pointer-pin-location-sandwich-fast-vector-26444686.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hamburger-logo-pointer-pin-location-sandwich-fast-vector-26444686" title="hamburger logo pointer pin location sandwich fast vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/46/86/hamburger-logo-pointer-pin-location-sandwich-fast-vector-26444686.jpg" title="hamburger logo pointer pin location sandwich fast" alt="hamburger logo pointer pin location sandwich fast vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/29/82/best-location-hamburger-vector-20402982.jpg"><a href="//www.vectorstock.com/royalty-free-vector/best-location-hamburger-vector-20402982" title="best location hamburger vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/29/82/best-location-hamburger-vector-20402982.jpg" title="best location hamburger" alt="best location hamburger vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/38/75/map-pointer-with-fork-and-spoon-icon-vector-2623875.jpg"><a href="//www.vectorstock.com/royalty-free-vector/map-pointer-with-fork-and-spoon-icon-vector-2623875" title="map pointer with fork and spoon icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/38/75/map-pointer-with-fork-and-spoon-icon-vector-2623875.jpg" title="map pointer with fork and spoon icon" alt="map pointer with fork and spoon icon vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/51/96/food-location-icon-vector-21645196.jpg"><a href="//www.vectorstock.com/royalty-free-vector/food-location-icon-vector-21645196" title="food location icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/51/96/food-location-icon-vector-21645196.jpg" title="food location icon" alt="food location icon vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/60/40/fast-food-eat-and-drink-icon-vector-22616040.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-eat-and-drink-icon-vector-22616040" title="fast food eat and drink icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/60/40/fast-food-eat-and-drink-icon-vector-22616040.jpg" title="fast food eat and drink icon" alt="fast food eat and drink icon vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/82/17/pizza-map-point-location-of-restaurant-design-vector-12238217.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pizza-map-point-location-of-restaurant-design-vector-12238217" title="pizza map point location of restaurant design vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/82/17/pizza-map-point-location-of-restaurant-design-vector-12238217.jpg" title="pizza map point location of restaurant design" alt="pizza map point location of restaurant design vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/88/63/fast-food-icons-vector-32058863.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-icons-vector-32058863" title="fast food icons vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/88/63/fast-food-icons-vector-32058863.jpg" title="fast food icons" alt="fast food icons vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/60/09/hamburger-and-cola-drink-hand-drawn-sketch-vector-20326009.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hamburger-and-cola-drink-hand-drawn-sketch-vector-20326009" title="hamburger and cola drink hand drawn sketch vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/60/09/hamburger-and-cola-drink-hand-drawn-sketch-vector-20326009.jpg" title="hamburger and cola drink hand drawn sketch" alt="hamburger and cola drink hand drawn sketch vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/06/39/3d-pointers-vector-1040639.jpg"><a href="//www.vectorstock.com/royalty-free-vector/3d-pointers-vector-1040639" title="3d pointers vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/06/39/3d-pointers-vector-1040639.jpg" title="3d pointers" alt="3d pointers vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/91/43/burger-and-soda-isometric-3d-vector-30729143.jpg"><a href="//www.vectorstock.com/royalty-free-vector/burger-and-soda-isometric-3d-vector-30729143" title="burger and soda isometric 3d vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/91/43/burger-and-soda-isometric-3d-vector-30729143.jpg" title="burger and soda isometric 3d" alt="burger and soda isometric 3d vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/12/96/burger-and-map-pointer-logo-combination-vector-17491296.jpg"><a href="//www.vectorstock.com/royalty-free-vector/burger-and-map-pointer-logo-combination-vector-17491296" title="burger and map pointer logo combination vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/12/96/burger-and-map-pointer-logo-combination-vector-17491296.jpg" title="burger and map pointer logo combination" alt="burger and map pointer logo combination vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/56/62/retro-neon-burger-and-cola-sign-on-brick-wall-vector-21665662.jpg"><a href="//www.vectorstock.com/royalty-free-vector/retro-neon-burger-and-cola-sign-on-brick-wall-vector-21665662" title="retro neon burger and cola sign on brick wall vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/56/62/retro-neon-burger-and-cola-sign-on-brick-wall-vector-21665662.jpg" title="retro neon burger and cola sign on brick wall" alt="retro neon burger and cola sign on brick wall vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/03/48/food-point-sign-emblem-label-vintage-vector-10510348.jpg"><a href="//www.vectorstock.com/royalty-free-vector/food-point-sign-emblem-label-vintage-vector-10510348" title="food point sign emblem label vintage vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/03/48/food-point-sign-emblem-label-vintage-vector-10510348.jpg" title="food point sign emblem label vintage" alt="food point sign emblem label vintage vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/88/05/fast-food-online-isometric-vector-21408805.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-online-isometric-vector-21408805" title="fast food online isometric vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/88/05/fast-food-online-isometric-vector-21408805.jpg" title="fast food online isometric" alt="fast food online isometric vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/43/26/set-fast-food-in-vector-31224326.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-fast-food-in-vector-31224326" title="set fast food in vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/43/26/set-fast-food-in-vector-31224326.jpg" title="set fast food in" alt="set fast food in vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/09/93/burger-and-drink-icon-vector-10790993.jpg"><a href="//www.vectorstock.com/royalty-free-vector/burger-and-drink-icon-vector-10790993" title="burger and drink icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/09/93/burger-and-drink-icon-vector-10790993.jpg" title="burger and drink icon" alt="burger and drink icon vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="26608447" data-title="fast food set hand drawn monochrome sketch" data-src="https://cdn3.vectorstock.com/i/thumbs/84/47/fast-food-set-hand-drawn-monochrome-sketch-vector-26608447.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-set-hand-drawn-monochrome-sketch-vector-26608447" title="fast food set hand drawn monochrome sketch vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/84/47/fast-food-set-hand-drawn-monochrome-sketch-vector-26608447.jpg" title="fast food set hand drawn monochrome sketch" alt="fast food set hand drawn monochrome sketch vector image"></noscript></a></li>
+						<li data-id="36062902" data-title="fast food linear icon on white background" data-src="https://cdn3.vectorstock.com/i/thumbs/29/02/fast-food-linear-icon-on-white-background-vector-36062902.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-linear-icon-on-white-background-vector-36062902" title="fast food linear icon on white background vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/29/02/fast-food-linear-icon-on-white-background-vector-36062902.jpg" title="fast food linear icon on white background" alt="fast food linear icon on white background vector image"></noscript></a></li>
+						<li data-id="9679027" data-title="fast food" data-src="https://cdn3.vectorstock.com/i/thumbs/90/27/fast-food-vector-9679027.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-vector-9679027" title="fast food vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/90/27/fast-food-vector-9679027.jpg" title="fast food" alt="fast food vector image"></noscript></a></li>
+						<li data-id="35857230" data-title="hamburger food icon design sign" data-src="https://cdn1.vectorstock.com/i/thumbs/72/30/hamburger-food-icon-design-sign-vector-35857230.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hamburger-food-icon-design-sign-vector-35857230" title="hamburger food icon design sign vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/72/30/hamburger-food-icon-design-sign-vector-35857230.jpg" title="hamburger food icon design sign" alt="hamburger food icon design sign vector image"></noscript></a></li>
+						<li data-id="25999854" data-title="fast food pattern" data-src="https://cdn5.vectorstock.com/i/thumbs/98/54/fast-food-pattern-vector-25999854.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-pattern-vector-25999854" title="fast food pattern vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/98/54/fast-food-pattern-vector-25999854.jpg" title="fast food pattern" alt="fast food pattern vector image"></noscript></a></li>
+						<li data-id="35606293" data-title="burger icon design template isolated" data-src="https://cdn4.vectorstock.com/i/thumbs/62/93/burger-icon-design-template-isolated-vector-35606293.jpg"><a href="//www.vectorstock.com/royalty-free-vector/burger-icon-design-template-isolated-vector-35606293" title="burger icon design template isolated vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/62/93/burger-icon-design-template-isolated-vector-35606293.jpg" title="burger icon design template isolated" alt="burger icon design template isolated vector image"></noscript></a></li>
+						<li data-id="4400106" data-title="fast foods icons set" data-src="https://cdn2.vectorstock.com/i/thumbs/01/06/fast-foods-icons-set-vector-4400106.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-foods-icons-set-vector-4400106" title="fast foods icons set vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/01/06/fast-foods-icons-set-vector-4400106.jpg" title="fast foods icons set" alt="fast foods icons set vector image"></noscript></a></li>
+						<li data-id="28280712" data-title="fast food icon junk food trash unhealthy products" data-src="https://cdn3.vectorstock.com/i/thumbs/07/12/fast-food-icon-junk-food-trash-unhealthy-products-vector-28280712.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-icon-junk-food-trash-unhealthy-products-vector-28280712" title="fast food icon junk food trash unhealthy products vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/07/12/fast-food-icon-junk-food-trash-unhealthy-products-vector-28280712.jpg" title="fast food icon junk food trash unhealthy products" alt="fast food icon junk food trash unhealthy products vector image"></noscript></a></li>
+						<li data-id="1460406" data-title="car with fast food icon on red pointer" data-src="https://cdn2.vectorstock.com/i/thumbs/04/06/car-with-fast-food-icon-on-red-pointer-vector-1460406.jpg"><a href="//www.vectorstock.com/royalty-free-vector/car-with-fast-food-icon-on-red-pointer-vector-1460406" title="car with fast food icon on red pointer vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/04/06/car-with-fast-food-icon-on-red-pointer-vector-1460406.jpg" title="car with fast food icon on red pointer" alt="car with fast food icon on red pointer vector image"></noscript></a></li>
+						<li data-id="34751204" data-title="fast food color icons" data-src="https://cdn5.vectorstock.com/i/thumbs/12/04/fast-food-color-icons-vector-34751204.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-color-icons-vector-34751204" title="fast food color icons vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/12/04/fast-food-color-icons-vector-34751204.jpg" title="fast food color icons" alt="fast food color icons vector image"></noscript></a></li>
+						<li data-id="22767223" data-title="locate food logo icon design" data-src="https://cdn4.vectorstock.com/i/thumbs/72/23/locate-food-logo-icon-design-vector-22767223.jpg"><a href="//www.vectorstock.com/royalty-free-vector/locate-food-logo-icon-design-vector-22767223" title="locate food logo icon design vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/72/23/locate-food-logo-icon-design-vector-22767223.jpg" title="locate food logo icon design" alt="locate food logo icon design vector image"></noscript></a></li>
+						<li data-id="25329452" data-title="junk food beer and burger line icon" data-src="https://cdn3.vectorstock.com/i/thumbs/94/52/junk-food-beer-and-burger-line-icon-vector-25329452.jpg"><a href="//www.vectorstock.com/royalty-free-vector/junk-food-beer-and-burger-line-icon-vector-25329452" title="junk food beer and burger line icon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/94/52/junk-food-beer-and-burger-line-icon-vector-25329452.jpg" title="junk food beer and burger line icon" alt="junk food beer and burger line icon vector image"></noscript></a></li>
+						<li data-id="1599863" data-title="retro fast food labels" data-src="https://cdn4.vectorstock.com/i/thumbs/98/63/retro-fast-food-labels-vector-1599863.jpg"><a href="//www.vectorstock.com/royalty-free-vector/retro-fast-food-labels-vector-1599863" title="retro fast food labels vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/98/63/retro-fast-food-labels-vector-1599863.jpg" title="retro fast food labels" alt="retro fast food labels vector image"></noscript></a></li>
+						<li data-id="32726072" data-title="fast food icon" data-src="https://cdn3.vectorstock.com/i/thumbs/60/72/fast-food-icon-vector-32726072.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-icon-vector-32726072" title="fast food icon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/60/72/fast-food-icon-vector-32726072.jpg" title="fast food icon" alt="fast food icon vector image"></noscript></a></li>
+						<li data-id="22373473" data-title="rooster pin symbol logo" data-src="https://cdn4.vectorstock.com/i/thumbs/34/73/rooster-pin-symbol-logo-vector-22373473.jpg"><a href="//www.vectorstock.com/royalty-free-vector/rooster-pin-symbol-logo-vector-22373473" title="rooster pin symbol logo vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/34/73/rooster-pin-symbol-logo-vector-22373473.jpg" title="rooster pin symbol logo" alt="rooster pin symbol logo vector image"></noscript></a></li>
+						<li data-id="31366364" data-title="food menu neon label" data-src="https://cdn5.vectorstock.com/i/thumbs/63/64/food-menu-neon-label-vector-31366364.jpg"><a href="//www.vectorstock.com/royalty-free-vector/food-menu-neon-label-vector-31366364" title="food menu neon label vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/63/64/food-menu-neon-label-vector-31366364.jpg" title="food menu neon label" alt="food menu neon label vector image"></noscript></a></li>
+						<li data-id="32399096" data-title="fast food hamburger" data-src="https://cdn2.vectorstock.com/i/thumbs/90/96/fast-food-hamburger-vector-32399096.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-hamburger-vector-32399096" title="fast food hamburger vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/90/96/fast-food-hamburger-vector-32399096.jpg" title="fast food hamburger" alt="fast food hamburger vector image"></noscript></a></li>
+						<li data-id="11515466" data-title="Cheeseburger and soda drink for fast food menu" data-src="https://cdn2.vectorstock.com/i/thumbs/54/66/cheeseburger-and-soda-drink-for-fast-food-menu-vector-11515466.jpg"><a href="//www.vectorstock.com/royalty-free-vector/cheeseburger-and-soda-drink-for-fast-food-menu-vector-11515466" title="Cheeseburger and soda drink for fast food menu vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/54/66/cheeseburger-and-soda-drink-for-fast-food-menu-vector-11515466.jpg" title="Cheeseburger and soda drink for fast food menu" alt="Cheeseburger and soda drink for fast food menu vector image"></noscript></a></li>
+						<li data-id="21292392" data-title="simple set fast food thin line icons" data-src="https://cdn3.vectorstock.com/i/thumbs/23/92/simple-set-fast-food-thin-line-icons-vector-21292392.jpg"><a href="//www.vectorstock.com/royalty-free-vector/simple-set-fast-food-thin-line-icons-vector-21292392" title="simple set fast food thin line icons vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/23/92/simple-set-fast-food-thin-line-icons-vector-21292392.jpg" title="simple set fast food thin line icons" alt="simple set fast food thin line icons vector image"></noscript></a></li>
+						<li data-id="32333094" data-title="pizza lettering logo" data-src="https://cdn5.vectorstock.com/i/thumbs/30/94/pizza-lettering-logo-vector-32333094.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pizza-lettering-logo-vector-32333094" title="pizza lettering logo vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/30/94/pizza-lettering-logo-vector-32333094.jpg" title="pizza lettering logo" alt="pizza lettering logo vector image"></noscript></a></li>
+						<li data-id="24983286" data-title="cup juice with square ice cubes and big" data-src="https://cdn2.vectorstock.com/i/thumbs/32/86/cup-juice-with-square-ice-cubes-and-big-vector-24983286.jpg"><a href="//www.vectorstock.com/royalty-free-vector/cup-juice-with-square-ice-cubes-and-big-vector-24983286" title="cup juice with square ice cubes and big vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/32/86/cup-juice-with-square-ice-cubes-and-big-vector-24983286.jpg" title="cup juice with square ice cubes and big" alt="cup juice with square ice cubes and big vector image"></noscript></a></li>
+						<li data-id="19904313" data-title="fast food silhouettes" data-src="https://cdn4.vectorstock.com/i/thumbs/43/13/fast-food-silhouettes-vector-19904313.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-silhouettes-vector-19904313" title="fast food silhouettes vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/43/13/fast-food-silhouettes-vector-19904313.jpg" title="fast food silhouettes" alt="fast food silhouettes vector image"></noscript></a></li>
+						<li data-id="22266826" data-title="silhouette burger fast food restaurant" data-src="https://cdn2.vectorstock.com/i/thumbs/68/26/silhouette-burger-fast-food-restaurant-vector-22266826.jpg"><a href="//www.vectorstock.com/royalty-free-vector/silhouette-burger-fast-food-restaurant-vector-22266826" title="silhouette burger fast food restaurant vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/68/26/silhouette-burger-fast-food-restaurant-vector-22266826.jpg" title="silhouette burger fast food restaurant" alt="silhouette burger fast food restaurant vector image"></noscript></a></li>
+						<li data-id="13714658" data-title="image with burger" data-src="https://cdn4.vectorstock.com/i/thumbs/46/58/image-with-burger-vector-13714658.jpg"><a href="//www.vectorstock.com/royalty-free-vector/image-with-burger-vector-13714658" title="image with burger vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/46/58/image-with-burger-vector-13714658.jpg" title="image with burger" alt="image with burger vector image"></noscript></a></li>
+						<li data-id="1103071" data-title="ui map location icons" data-src="https://cdn2.vectorstock.com/i/thumbs/30/71/ui-map-location-icons-vector-1103071.jpg"><a href="//www.vectorstock.com/royalty-free-vector/ui-map-location-icons-vector-1103071" title="ui map location icons vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/30/71/ui-map-location-icons-vector-1103071.jpg" title="ui map location icons" alt="ui map location icons vector image"></noscript></a></li>
+						<li data-id="35004264" data-title="burger silhouette as logo fast food service hand" data-src="https://cdn5.vectorstock.com/i/thumbs/42/64/burger-silhouette-as-logo-fast-food-service-hand-vector-35004264.jpg"><a href="//www.vectorstock.com/royalty-free-vector/burger-silhouette-as-logo-fast-food-service-hand-vector-35004264" title="burger silhouette as logo fast food service hand vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/42/64/burger-silhouette-as-logo-fast-food-service-hand-vector-35004264.jpg" title="burger silhouette as logo fast food service hand" alt="burger silhouette as logo fast food service hand vector image"></noscript></a></li>
+						<li data-id="28151524" data-title="geotag with coffee or location pin logo icon" data-src="https://cdn5.vectorstock.com/i/thumbs/15/24/geotag-with-coffee-or-location-pin-logo-icon-vector-28151524.jpg"><a href="//www.vectorstock.com/royalty-free-vector/geotag-with-coffee-or-location-pin-logo-icon-vector-28151524" title="geotag with coffee or location pin logo icon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/15/24/geotag-with-coffee-or-location-pin-logo-icon-vector-28151524.jpg" title="geotag with coffee or location pin logo icon" alt="geotag with coffee or location pin logo icon vector image"></noscript></a></li>
+						<li data-id="32746801" data-title="hamburger fast food burger cartoon" data-src="https://cdn2.vectorstock.com/i/thumbs/68/01/hamburger-fast-food-burger-cartoon-vector-32746801.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hamburger-fast-food-burger-cartoon-vector-32746801" title="hamburger fast food burger cartoon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/68/01/hamburger-fast-food-burger-cartoon-vector-32746801.jpg" title="hamburger fast food burger cartoon" alt="hamburger fast food burger cartoon vector image"></noscript></a></li>
+						<li data-id="34454915" data-title="snack product set fast food snacks drinks and" data-src="https://cdn1.vectorstock.com/i/thumbs/49/15/snack-product-set-fast-food-snacks-drinks-and-vector-34454915.jpg"><a href="//www.vectorstock.com/royalty-free-vector/snack-product-set-fast-food-snacks-drinks-and-vector-34454915" title="snack product set fast food snacks drinks and vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/49/15/snack-product-set-fast-food-snacks-drinks-and-vector-34454915.jpg" title="snack product set fast food snacks drinks and" alt="snack product set fast food snacks drinks and vector image"></noscript></a></li>
+						<li data-id="7510959" data-title="fast food icons set" data-src="https://cdn5.vectorstock.com/i/thumbs/09/59/fast-food-icons-set-vector-7510959.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-icons-set-vector-7510959" title="fast food icons set vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/09/59/fast-food-icons-set-vector-7510959.jpg" title="fast food icons set" alt="fast food icons set vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/vectors-similar-to_20095652" rel="nofollow"><span class="lrg">More Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-artist" class="group">
+				<h6><span class="icon"></span><strong>More by <a href="/royalty-free-vectors/vectors-by_bagrovskam" rel="nofollow">bagrovskam</a></strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/13/71/a-bowl-noodles-in-location-logo-isolated-vector-20121371.jpg"><a href="//www.vectorstock.com/royalty-free-vector/a-bowl-noodles-in-location-logo-isolated-vector-20121371" title="a bowl noodles in location logo isolated vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/13/71/a-bowl-noodles-in-location-logo-isolated-vector-20121371.jpg" title="a bowl noodles in location logo isolated" alt="a bowl noodles in location logo isolated vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/84/52/fast-food-icon-vector-13288452.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-icon-vector-13288452" title="fast food icon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/84/52/fast-food-icon-vector-13288452.jpg" title="fast food icon" alt="fast food icon vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/84/58/fast-food-icon-vector-13288458.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-icon-vector-13288458" title="fast food icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/84/58/fast-food-icon-vector-13288458.jpg" title="fast food icon" alt="fast food icon vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/79/47/burger-vector-17947947.jpg"><a href="//www.vectorstock.com/royalty-free-vector/burger-vector-17947947" title="burger vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/79/47/burger-vector-17947947.jpg" title="burger" alt="burger vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/65/81/fast-food-flat-design-icons-set-vector-13816581.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fast-food-flat-design-icons-set-vector-13816581" title="fast food flat design icons set vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/65/81/fast-food-flat-design-icons-set-vector-13816581.jpg" title="fast food flat design icons set" alt="fast food flat design icons set vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/62/60/junk-fast-foods-icon-vector-13816260.jpg"><a href="//www.vectorstock.com/royalty-free-vector/junk-fast-foods-icon-vector-13816260" title="junk fast foods icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/62/60/junk-fast-foods-icon-vector-13816260.jpg" title="junk fast foods icon" alt="junk fast foods icon vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/92/36/delicious-american-cheeseburger-vector-19189236.jpg"><a href="//www.vectorstock.com/royalty-free-vector/delicious-american-cheeseburger-vector-19189236" title="delicious american cheeseburger vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/92/36/delicious-american-cheeseburger-vector-19189236.jpg" title="delicious american cheeseburger" alt="delicious american cheeseburger vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/66/64/junk-fast-foods-icon-vector-13816664.jpg"><a href="//www.vectorstock.com/royalty-free-vector/junk-fast-foods-icon-vector-13816664" title="junk fast foods icon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/66/64/junk-fast-foods-icon-vector-13816664.jpg" title="junk fast foods icon" alt="junk fast foods icon vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/03/50/real-estate-red-pin-symbol-vector-19270350.jpg"><a href="//www.vectorstock.com/royalty-free-vector/real-estate-red-pin-symbol-vector-19270350" title="real estate red pin symbol vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/03/50/real-estate-red-pin-symbol-vector-19270350.jpg" title="real estate red pin symbol" alt="real estate red pin symbol vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/97/69/green-geo-pin-as-logo-with-copy-space-on-white-vector-27409769.jpg"><a href="//www.vectorstock.com/royalty-free-vector/green-geo-pin-as-logo-with-copy-space-on-white-vector-27409769" title="green geo pin as logo with copy space on white vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/97/69/green-geo-pin-as-logo-with-copy-space-on-white-vector-27409769.jpg" title="green geo pin as logo with copy space on white" alt="green geo pin as logo with copy space on white vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="19277394" data-title="location bank icon" data-src="https://cdn5.vectorstock.com/i/thumbs/73/94/location-bank-icon-vector-19277394.jpg"><a href="//www.vectorstock.com/royalty-free-vector/location-bank-icon-vector-19277394" title="location bank icon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/73/94/location-bank-icon-vector-19277394.jpg" title="location bank icon" alt="location bank icon vector image vector image"></noscript></a></li>
+						<li data-id="19189275" data-title="french fries logo" data-src="https://cdn1.vectorstock.com/i/thumbs/92/75/french-fries-logo-vector-19189275.jpg"><a href="//www.vectorstock.com/royalty-free-vector/french-fries-logo-vector-19189275" title="french fries logo vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/92/75/french-fries-logo-vector-19189275.jpg" title="french fries logo" alt="french fries logo vector image vector image"></noscript></a></li>
+						<li data-id="19281981" data-title="map pin icon hospital" data-src="https://cdn2.vectorstock.com/i/thumbs/19/81/map-pin-icon-hospital-vector-19281981.jpg"><a href="//www.vectorstock.com/royalty-free-vector/map-pin-icon-hospital-vector-19281981" title="map pin icon hospital vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/19/81/map-pin-icon-hospital-vector-19281981.jpg" title="map pin icon hospital" alt="map pin icon hospital vector image vector image"></noscript></a></li>
+						<li data-id="17947962" data-title="hotdog" data-src="https://cdn3.vectorstock.com/i/thumbs/79/62/hotdog-vector-17947962.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hotdog-vector-17947962" title="hotdog vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/79/62/hotdog-vector-17947962.jpg" title="hotdog" alt="hotdog vector image vector image"></noscript></a></li>
+						<li data-id="20121374" data-title="map icon with electric car" data-src="https://cdn5.vectorstock.com/i/thumbs/13/74/map-icon-with-electric-car-vector-20121374.jpg"><a href="//www.vectorstock.com/royalty-free-vector/map-icon-with-electric-car-vector-20121374" title="map icon with electric car vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/13/74/map-icon-with-electric-car-vector-20121374.jpg" title="map icon with electric car" alt="map icon with electric car vector image vector image"></noscript></a></li>
+						<li data-id="19270368" data-title="colorful round gym markers" data-src="https://cdn4.vectorstock.com/i/thumbs/03/68/colorful-round-gym-markers-vector-19270368.jpg"><a href="//www.vectorstock.com/royalty-free-vector/colorful-round-gym-markers-vector-19270368" title="colorful round gym markers vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/03/68/colorful-round-gym-markers-vector-19270368.jpg" title="colorful round gym markers" alt="colorful round gym markers vector image vector image"></noscript></a></li>
+						<li data-id="19189235" data-title="coffee and burger fast food old background" data-src="https://cdn1.vectorstock.com/i/thumbs/92/35/coffee-and-burger-fast-food-old-background-vector-19189235.jpg"><a href="//www.vectorstock.com/royalty-free-vector/coffee-and-burger-fast-food-old-background-vector-19189235" title="coffee and burger fast food old background vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/92/35/coffee-and-burger-fast-food-old-background-vector-19189235.jpg" title="coffee and burger fast food old background" alt="coffee and burger fast food old background vector image vector image"></noscript></a></li>
+						<li data-id="19270381" data-title="map pointer with heart icon" data-src="https://cdn2.vectorstock.com/i/thumbs/03/81/map-pointer-with-heart-icon-vector-19270381.jpg"><a href="//www.vectorstock.com/royalty-free-vector/map-pointer-with-heart-icon-vector-19270381" title="map pointer with heart icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/03/81/map-pointer-with-heart-icon-vector-19270381.jpg" title="map pointer with heart icon" alt="map pointer with heart icon vector image vector image"></noscript></a></li>
+						<li data-id="20095615" data-title="pinpoint hotel accommodation map point isolated" data-src="https://cdn1.vectorstock.com/i/thumbs/56/15/pinpoint-hotel-accommodation-map-point-isolated-vector-20095615.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pinpoint-hotel-accommodation-map-point-isolated-vector-20095615" title="pinpoint hotel accommodation map point isolated vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/56/15/pinpoint-hotel-accommodation-map-point-isolated-vector-20095615.jpg" title="pinpoint hotel accommodation map point isolated" alt="pinpoint hotel accommodation map point isolated vector image vector image"></noscript></a></li>
+						<li data-id="20095627" data-title="red location icon for bowling" data-src="https://cdn3.vectorstock.com/i/thumbs/56/27/red-location-icon-for-bowling-vector-20095627.jpg"><a href="//www.vectorstock.com/royalty-free-vector/red-location-icon-for-bowling-vector-20095627" title="red location icon for bowling vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/56/27/red-location-icon-for-bowling-vector-20095627.jpg" title="red location icon for bowling" alt="red location icon for bowling vector image vector image"></noscript></a></li>
+						<li data-id="20121378" data-title="location marker with fuel pump abstract" data-src="https://cdn4.vectorstock.com/i/thumbs/13/78/location-marker-with-fuel-pump-abstract-vector-20121378.jpg"><a href="//www.vectorstock.com/royalty-free-vector/location-marker-with-fuel-pump-abstract-vector-20121378" title="location marker with fuel pump abstract vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/13/78/location-marker-with-fuel-pump-abstract-vector-20121378.jpg" title="location marker with fuel pump abstract" alt="location marker with fuel pump abstract vector image vector image"></noscript></a></li>
+						<li data-id="19277400" data-title="a map mark icon with a plane" data-src="https://cdn1.vectorstock.com/i/thumbs/74/00/a-map-mark-icon-with-a-plane-vector-19277400.jpg"><a href="//www.vectorstock.com/royalty-free-vector/a-map-mark-icon-with-a-plane-vector-19277400" title="a map mark icon with a plane vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/74/00/a-map-mark-icon-with-a-plane-vector-19277400.jpg" title="a map mark icon with a plane" alt="a map mark icon with a plane vector image vector image"></noscript></a></li>
+						<li data-id="20014408" data-title="a cup coffee in location logo isolated" data-src="https://cdn4.vectorstock.com/i/thumbs/44/08/a-cup-coffee-in-location-logo-isolated-vector-20014408.jpg"><a href="//www.vectorstock.com/royalty-free-vector/a-cup-coffee-in-location-logo-isolated-vector-20014408" title="a cup coffee in location logo isolated vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/44/08/a-cup-coffee-in-location-logo-isolated-vector-20014408.jpg" title="a cup coffee in location logo isolated" alt="a cup coffee in location logo isolated vector image vector image"></noscript></a></li>
+						<li data-id="20122405" data-title="bar location icon cafe pinpoint isolated" data-src="https://cdn1.vectorstock.com/i/thumbs/24/05/bar-location-icon-cafe-pinpoint-isolated-vector-20122405.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bar-location-icon-cafe-pinpoint-isolated-vector-20122405" title="bar location icon cafe pinpoint isolated vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/24/05/bar-location-icon-cafe-pinpoint-isolated-vector-20122405.jpg" title="bar location icon cafe pinpoint isolated" alt="bar location icon cafe pinpoint isolated vector image vector image"></noscript></a></li>
+						<li data-id="19281988" data-title="photo camera flat mapping pin icon" data-src="https://cdn4.vectorstock.com/i/thumbs/19/88/photo-camera-flat-mapping-pin-icon-vector-19281988.jpg"><a href="//www.vectorstock.com/royalty-free-vector/photo-camera-flat-mapping-pin-icon-vector-19281988" title="photo camera flat mapping pin icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/19/88/photo-camera-flat-mapping-pin-icon-vector-19281988.jpg" title="photo camera flat mapping pin icon" alt="photo camera flat mapping pin icon vector image vector image"></noscript></a></li>
+						<li data-id="27155727" data-title="pin location direction position graphic pin flat" data-src="https://cdn3.vectorstock.com/i/thumbs/57/27/pin-location-direction-position-graphic-pin-flat-vector-27155727.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pin-location-direction-position-graphic-pin-flat-vector-27155727" title="pin location direction position graphic pin flat vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/57/27/pin-location-direction-position-graphic-pin-flat-vector-27155727.jpg" title="pin location direction position graphic pin flat" alt="pin location direction position graphic pin flat vector image vector image"></noscript></a></li>
+						<li data-id="19281983" data-title="fod icon restaurant location pin icon" data-src="https://cdn4.vectorstock.com/i/thumbs/19/83/fod-icon-restaurant-location-pin-icon-vector-19281983.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fod-icon-restaurant-location-pin-icon-vector-19281983" title="fod icon restaurant location pin icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/19/83/fod-icon-restaurant-location-pin-icon-vector-19281983.jpg" title="fod icon restaurant location pin icon" alt="fod icon restaurant location pin icon vector image vector image"></noscript></a></li>
+						<li data-id="20121829" data-title="pointer icon with christmas tree on white" data-src="https://cdn5.vectorstock.com/i/thumbs/18/29/pointer-icon-with-christmas-tree-on-white-vector-20121829.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pointer-icon-with-christmas-tree-on-white-vector-20121829" title="pointer icon with christmas tree on white vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/18/29/pointer-icon-with-christmas-tree-on-white-vector-20121829.jpg" title="pointer icon with christmas tree on white" alt="pointer icon with christmas tree on white vector image vector image"></noscript></a></li>
+						<li data-id="19277404" data-title="map pointer with shopping bags icon" data-src="https://cdn5.vectorstock.com/i/thumbs/74/04/map-pointer-with-shopping-bags-icon-vector-19277404.jpg"><a href="//www.vectorstock.com/royalty-free-vector/map-pointer-with-shopping-bags-icon-vector-19277404" title="map pointer with shopping bags icon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/74/04/map-pointer-with-shopping-bags-icon-vector-19277404.jpg" title="map pointer with shopping bags icon" alt="map pointer with shopping bags icon vector image vector image"></noscript></a></li>
+						<li data-id="19160199" data-title="chicken leg flat icon food meat sign" data-src="https://cdn5.vectorstock.com/i/thumbs/01/99/chicken-leg-flat-icon-food-meat-sign-vector-19160199.jpg"><a href="//www.vectorstock.com/royalty-free-vector/chicken-leg-flat-icon-food-meat-sign-vector-19160199" title="chicken leg flat icon food meat sign vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/01/99/chicken-leg-flat-icon-food-meat-sign-vector-19160199.jpg" title="chicken leg flat icon food meat sign" alt="chicken leg flat icon food meat sign vector image vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/vectors-by_bagrovskam" rel="nofollow"><span class="lrg">More Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-keywords" class="group">
+				<h6><span class="icon"></span><strong>Related Searches</strong></h6>
+				<ul>
+					<li><a href="/royalty-free-vectors/fast-vectors">Fast</a></li>
+					<li><a href="/royalty-free-vectors/food-vectors">Food</a></li>
+					<li><a href="/royalty-free-vectors/symbol-vectors">Symbol</a></li>
+					<li><a href="/royalty-free-vectors/point-vectors">Point</a></li>
+					<li><a href="/royalty-free-vectors/map-vectors">Map</a></li>
+					<li><a href="/royalty-free-vectors/pointer-vectors">Pointer</a></li>
+					<li><a href="/royalty-free-vectors/isolated-vectors">Isolated</a></li>
+					<li><a href="/royalty-free-vectors/icon-vectors">Icon</a></li>
+					<li><a href="/royalty-free-vectors/location-vectors">Location</a></li>
+					<li><a href="/royalty-free-vectors/sign-vectors">Sign</a></li>
+					<li><a href="/royalty-free-vectors/cola-vectors">Cola</a></li>
+					<li><a href="/royalty-free-vectors/hamburger-vectors">Hamburger</a></li>
+					<li><a href="/royalty-free-vectors/nutrition-vectors">Nutrition</a></li>
+					<li><a href="/royalty-free-vectors/soda-vectors">Soda</a></li>
+					<li><a href="/royalty-free-vectors/sandwich-vectors">Sandwich</a></li>
+					<li><a href="/royalty-free-vectors/lunch-vectors">Lunch</a></li>
+					<li><a href="/royalty-free-vectors/marker-vectors">Marker</a></li>
+					<li><a href="/royalty-free-vectors/burger-vectors">Burger</a></li>
+					<li><a href="/royalty-free-vectors/restaurant-vectors">Restaurant</a></li>
+					<li><a href="/royalty-free-vectors/drink-vectors">Drink</a></li>
+					<li><a href="/royalty-free-vectors/direction-vectors">Direction</a></li>
+					<li><a href="/royalty-free-vectors/element-vectors">Element</a></li>
+					<li><a href="/royalty-free-vectors/global-vectors">Global</a></li>
+					<li><a href="/royalty-free-vectors/navigation-vectors">Navigation</a></li>
+					<li><a href="/royalty-free-vectors/place-vectors">Place</a></li>
+					<li><a href="/royalty-free-vectors/meal-vectors">Meal</a></li>
+					<li><a href="/royalty-free-vectors/button-vectors">Button</a></li>
+					<li><a href="/royalty-free-vectors/destination-vectors">Destination</a></li>
+					<li><a href="/royalty-free-vectors/cartography-vectors">Cartography</a></li>
+					<li><a href="/royalty-free-vectors/pin-vectors">Pin</a></li>
+				</ul>
+			</div>
+		</section>
+	</article>
+
+	<!-- Footer -->
+	<footer>
+
+		<div>
+		<div class="column c1">
+			<nav class="company">
+				<h4>VectorStock</h4>
+				<ul>
+					<li><a href="/" title="Home">Home</a></li>
+					<li class="sel"><a href="/free-vectors" title="Free Vectors">Free Vectors</a></li>
+					<li class="sel"><a href="/royalty-free-vectors" title="All Royalty-Free Vectors">All Vectors</a></li>
+				</ul>
+				<ul>
+					<li><a href="/what-is-a-vector" title="What is a Vector?">What is a Vector?</a></li>
+				</ul>
+				<ul>
+					<li class="sel"><a href="/faq" title="Frequently Asked Questions"><span class="long">Frequently Asked Questions</span><span class="short">FAQs</span></a></li>
+					<li><a href="/faq/members/terms-of-use" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+					<li class="sel"><a href="/contact" title="Contact Us">Contact Us</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="column c2">
+			<nav class="account">
+					<h4><span class="title">Account</span><span class="icon"></span></h4>
+					<ul>
+						<li><a href="/signup" title="Join Now">Join Now</a></li>
+						<li><a href="/pricing" title="Pricing">Pricing</a></li>
+						<li><a href="/?signup=1&contributor=1" title="Contributor Sign Up">Contributor Sign Up</a></li>
+						<li><a href="/faq/artists/why-sell-at-vectorstock" title="Contributor FAQ">Contributor FAQ</a></li>
+					</ul>
+			</nav>
+		</div>
+		<div class="column c3">
+			<nav class="social">
+				<h4>Social</h4>
+				<ul>
+					<li class="facebook sel"><a href="https://www.facebook.com/VectorStock" target="_blank" rel="noreferrer"><span class="title">Facebook</span><span class="icon"></span></a></li>
+					<li class="pinterest sel"><a href="https://pinterest.com/vectorstock/" target="_blank" rel="noreferrer"><span class="title">Pinterest</span><span class="icon"></span></a></li>
+					<li class="twitter sel"><a href="https://twitter.com/VectorStock" target="_blank" rel="noreferrer"><span class="title">Twitter</span><span class="icon"></span></a></li>
+				</ul>
+			</nav>
+			<div class="signoff">
+				<h5><a href="https://www.vectorstock.com/" title="VectorStock®">VectorStock®</a></h5>
+				<p>VectorStock and the VectorStock logo are registered trademarks of VectorStock Media.<br>
+				© 2021. <span>All Rights Reserved.</span></p>
+			</div>
+		</div>
+	</div></footer>
+
+
+	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"02e09611df","applicationID":"156179534","transactionName":"ZV0ENRYCC0RYAkVbDVwXJRQXFwpaFhNeSwNeTB9MAhEAUhQXVFEWXUpJFw0GEg==","queueTime":0,"applicationTime":50,"atts":"SRoHQ14YGEo=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script>
+
+</body>
+</html>
