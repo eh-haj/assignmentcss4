@@ -265,6 +265,10 @@ h5{
     height: 150px;
     object-fit: cover;
 }
+.body4 .body4-end img:hover{
+    transform: rotateY(360deg);
+    transition: 2s;
+}
 /************End of section 5 ***********/
 
 /************Start of media ***********/
